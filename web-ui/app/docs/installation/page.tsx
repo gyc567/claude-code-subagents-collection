@@ -5,8 +5,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Button } from '@/components/ui/button'
 import { Copy, Check, Download, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import { useLanguage } from '@/contexts/language-context'
 
 export default function InstallationPage() {
+  const { t } = useLanguage()
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null)
   
   const copyToClipboard = async (text: string, index: number) => {
@@ -84,9 +86,9 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
               </Button>
             </Link>
             <div>
-              <h1 className="text-3xl font-bold">Installation Guide</h1>
+              <h1 className="text-3xl font-bold">{t('common', 'installation.title')}</h1>
               <p className="text-muted-foreground mt-1">
-                Learn how to install Claude Code Subagents and Commands
+                {t('common', 'installation.description')}
               </p>
             </div>
           </div>
@@ -99,20 +101,19 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
           <div className="flex items-start gap-3">
             <Download className="h-5 w-5 text-primary mt-0.5" />
             <div>
-              <p className="font-semibold text-primary mb-1">Quick Installation Tip</p>
+              <p className="font-semibold text-primary mb-1">{t('common', 'installation.quickTip')}</p>
               <p className="text-sm">
-                The easiest way to install individual subagents or commands is directly from their pages!
-                Each page has platform-specific installation instructions with copy buttons for quick setup.
+                {t('common', 'installation.quickTipDesc')}
               </p>
               <div className="flex gap-2 mt-3">
                 <Link href="/browse">
                   <Button variant="outline" size="sm" className="gap-2 border-primary/20 hover:bg-primary/10">
-                    Browse Subagents <ArrowLeft className="h-3 w-3 rotate-180" />
+                    {t('common', 'installation.browseSubagents')} <ArrowLeft className="h-3 w-3 rotate-180" />
                   </Button>
                 </Link>
                 <Link href="/commands">
                   <Button variant="outline" size="sm" className="gap-2 border-primary/20 hover:bg-primary/10">
-                    Browse Commands <ArrowLeft className="h-3 w-3 rotate-180" />
+                    {t('common', 'installation.browseCommands')} <ArrowLeft className="h-3 w-3 rotate-180" />
                   </Button>
                 </Link>
               </div>
@@ -138,19 +139,19 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
             </div>
             
             <div className="bg-card/50 rounded-lg p-4 border border-border/50">
-              <p className="text-sm font-medium mb-1">What&apos;s Included</p>
+              <p className="text-sm font-medium mb-1">{t('common', 'installation.whatsIncluded')}</p>
               <div className="text-sm text-muted-foreground space-y-1">
-                <p>✓ 43+ AI Subagents for specialized tasks</p>
-                <p>✓ 39+ Slash Commands for automation</p>
-                <p>✓ Automatic invocation based on context</p>
-                <p>✓ Works across all your projects</p>
+                <p>{t('common', 'installation.includedSubagents')}</p>
+                <p>{t('common', 'installation.includedCommands')}</p>
+                <p>{t('common', 'installation.includedAutoInvocation')}</p>
+                <p>{t('common', 'installation.includedAllProjects')}</p>
               </div>
             </div>
             
             <div className="space-y-4">
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="font-medium">macOS/Linux</span>
+                  <span className="font-medium">{t('common', 'installation.macLinux')}</span>
                   <Button
                     size="sm"
                     variant="ghost"
@@ -160,12 +161,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                     {copiedIndex === 0 ? (
                       <>
                         <Check className="h-4 w-4" />
-                        Copied!
+                        {t('common', 'installation.copied')}
                       </>
                     ) : (
                       <>
                         <Copy className="h-4 w-4" />
-                        Copy
+                        {t('common', 'installation.copy')}
                       </>
                     )}
                   </Button>
@@ -177,7 +178,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
               
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="font-medium">Windows</span>
+                  <span className="font-medium">{t('common', 'installation.windows')}</span>
                   <Button
                     size="sm"
                     variant="ghost"
@@ -187,12 +188,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                     {copiedIndex === 1 ? (
                       <>
                         <Check className="h-4 w-4" />
-                        Copied!
+                        {t('common', 'installation.copied')}
                       </>
                     ) : (
                       <>
                         <Copy className="h-4 w-4" />
-                        Copy
+                        {t('common', 'installation.copy')}
                       </>
                     )}
                   </Button>
@@ -237,7 +238,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                     <div className="space-y-4">
                       <div>
                         <div className="flex items-center justify-between mb-3">
-                          <span className="font-medium">macOS/Linux</span>
+                          <span className="font-medium">{t('common', 'installation.macLinux')}</span>
                           <Button
                             size="sm"
                             variant="ghost"
@@ -247,12 +248,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                             {copiedIndex === 2 ? (
                               <>
                                 <Check className="h-4 w-4" />
-                                Copied!
+                                {t('common', 'installation.copied')}
                               </>
                             ) : (
                               <>
                                 <Copy className="h-4 w-4" />
-                                Copy
+                                {t('common', 'installation.copy')}
                               </>
                             )}
                           </Button>
@@ -264,7 +265,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                       
                       <div>
                         <div className="flex items-center justify-between mb-3">
-                          <span className="font-medium">Windows</span>
+                          <span className="font-medium">{t('common', 'installation.windows')}</span>
                           <Button
                             size="sm"
                             variant="ghost"
@@ -274,12 +275,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                             {copiedIndex === 3 ? (
                               <>
                                 <Check className="h-4 w-4" />
-                                Copied!
+                                {t('common', 'installation.copied')}
                               </>
                             ) : (
                               <>
                                 <Copy className="h-4 w-4" />
-                                Copy
+                                {t('common', 'installation.copy')}
                               </>
                             )}
                           </Button>
@@ -302,7 +303,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                     <div className="space-y-4">
                       <div>
                         <div className="flex items-center justify-between mb-3">
-                          <span className="font-medium">macOS/Linux</span>
+                          <span className="font-medium">{t('common', 'installation.macLinux')}</span>
                           <Button
                             size="sm"
                             variant="ghost"
@@ -312,12 +313,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                             {copiedIndex === 4 ? (
                               <>
                                 <Check className="h-4 w-4" />
-                                Copied!
+                                {t('common', 'installation.copied')}
                               </>
                             ) : (
                               <>
                                 <Copy className="h-4 w-4" />
-                                Copy
+                                {t('common', 'installation.copy')}
                               </>
                             )}
                           </Button>
@@ -329,7 +330,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                       
                       <div>
                         <div className="flex items-center justify-between mb-3">
-                          <span className="font-medium">Windows</span>
+                          <span className="font-medium">{t('common', 'installation.windows')}</span>
                           <Button
                             size="sm"
                             variant="ghost"
@@ -339,12 +340,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                             {copiedIndex === 5 ? (
                               <>
                                 <Check className="h-4 w-4" />
-                                Copied!
+                                {t('common', 'installation.copied')}
                               </>
                             ) : (
                               <>
                                 <Copy className="h-4 w-4" />
-                                Copy
+                                {t('common', 'installation.copy')}
                               </>
                             )}
                           </Button>
@@ -378,7 +379,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                   <TabsContent value="user" className="space-y-4 mt-6">
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <span className="font-medium">macOS/Linux</span>
+                        <span className="font-medium">{t('common', 'installation.macLinux')}</span>
                         <Button
                           size="sm"
                           variant="ghost"
@@ -388,12 +389,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                           {copiedIndex === 6 ? (
                             <>
                               <Check className="h-4 w-4" />
-                              Copied!
+                              {t('common', 'installation.copied')}
                             </>
                           ) : (
                             <>
                               <Copy className="h-4 w-4" />
-                              Copy
+                              {t('common', 'installation.copy')}
                             </>
                           )}
                         </Button>
@@ -405,7 +406,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                     
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <span className="font-medium">Windows</span>
+                        <span className="font-medium">{t('common', 'installation.windows')}</span>
                         <Button
                           size="sm"
                           variant="ghost"
@@ -415,12 +416,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                           {copiedIndex === 7 ? (
                             <>
                               <Check className="h-4 w-4" />
-                              Copied!
+                              {t('common', 'installation.copied')}
                             </>
                           ) : (
                             <>
                               <Copy className="h-4 w-4" />
-                              Copy
+                              {t('common', 'installation.copy')}
                             </>
                           )}
                         </Button>
@@ -434,7 +435,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                   <TabsContent value="project" className="space-y-4 mt-6">
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <span className="font-medium">macOS/Linux</span>
+                        <span className="font-medium">{t('common', 'installation.macLinux')}</span>
                         <Button
                           size="sm"
                           variant="ghost"
@@ -444,12 +445,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                           {copiedIndex === 8 ? (
                             <>
                               <Check className="h-4 w-4" />
-                              Copied!
+                              {t('common', 'installation.copied')}
                             </>
                           ) : (
                             <>
                               <Copy className="h-4 w-4" />
-                              Copy
+                              {t('common', 'installation.copy')}
                             </>
                           )}
                         </Button>
@@ -461,7 +462,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                     
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <span className="font-medium">Windows</span>
+                        <span className="font-medium">{t('common', 'installation.windows')}</span>
                         <Button
                           size="sm"
                           variant="ghost"
@@ -471,12 +472,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                           {copiedIndex === 9 ? (
                             <>
                               <Check className="h-4 w-4" />
-                              Copied!
+                              {t('common', 'installation.copied')}
                             </>
                           ) : (
                             <>
                               <Copy className="h-4 w-4" />
-                              Copy
+                              {t('common', 'installation.copy')}
                             </>
                           )}
                         </Button>
@@ -524,7 +525,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                     <div className="space-y-4">
                       <div>
                         <div className="flex items-center justify-between mb-3">
-                          <span className="font-medium">macOS/Linux</span>
+                          <span className="font-medium">{t('common', 'installation.macLinux')}</span>
                           <Button
                             size="sm"
                             variant="ghost"
@@ -534,12 +535,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                             {copiedIndex === 10 ? (
                               <>
                                 <Check className="h-4 w-4" />
-                                Copied!
+                                {t('common', 'installation.copied')}
                               </>
                             ) : (
                               <>
                                 <Copy className="h-4 w-4" />
-                                Copy
+                                {t('common', 'installation.copy')}
                               </>
                             )}
                           </Button>
@@ -551,7 +552,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                       
                       <div>
                         <div className="flex items-center justify-between mb-3">
-                          <span className="font-medium">Windows</span>
+                          <span className="font-medium">{t('common', 'installation.windows')}</span>
                           <Button
                             size="sm"
                             variant="ghost"
@@ -561,12 +562,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                             {copiedIndex === 11 ? (
                               <>
                                 <Check className="h-4 w-4" />
-                                Copied!
+                                {t('common', 'installation.copied')}
                               </>
                             ) : (
                               <>
                                 <Copy className="h-4 w-4" />
-                                Copy
+                                {t('common', 'installation.copy')}
                               </>
                             )}
                           </Button>
@@ -589,7 +590,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                     <div className="space-y-4">
                       <div>
                         <div className="flex items-center justify-between mb-3">
-                          <span className="font-medium">macOS/Linux</span>
+                          <span className="font-medium">{t('common', 'installation.macLinux')}</span>
                           <Button
                             size="sm"
                             variant="ghost"
@@ -599,12 +600,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                             {copiedIndex === 12 ? (
                               <>
                                 <Check className="h-4 w-4" />
-                                Copied!
+                                {t('common', 'installation.copied')}
                               </>
                             ) : (
                               <>
                                 <Copy className="h-4 w-4" />
-                                Copy
+                                {t('common', 'installation.copy')}
                               </>
                             )}
                           </Button>
@@ -616,7 +617,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                       
                       <div>
                         <div className="flex items-center justify-between mb-3">
-                          <span className="font-medium">Windows</span>
+                          <span className="font-medium">{t('common', 'installation.windows')}</span>
                           <Button
                             size="sm"
                             variant="ghost"
@@ -626,12 +627,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                             {copiedIndex === 13 ? (
                               <>
                                 <Check className="h-4 w-4" />
-                                Copied!
+                                {t('common', 'installation.copied')}
                               </>
                             ) : (
                               <>
                                 <Copy className="h-4 w-4" />
-                                Copy
+                                {t('common', 'installation.copy')}
                               </>
                             )}
                           </Button>
@@ -665,7 +666,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                   <TabsContent value="user" className="space-y-4 mt-6">
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <span className="font-medium">macOS/Linux</span>
+                        <span className="font-medium">{t('common', 'installation.macLinux')}</span>
                         <Button
                           size="sm"
                           variant="ghost"
@@ -675,12 +676,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                           {copiedIndex === 14 ? (
                             <>
                               <Check className="h-4 w-4" />
-                              Copied!
+                              {t('common', 'installation.copied')}
                             </>
                           ) : (
                             <>
                               <Copy className="h-4 w-4" />
-                              Copy
+                              {t('common', 'installation.copy')}
                             </>
                           )}
                         </Button>
@@ -692,7 +693,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                     
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <span className="font-medium">Windows</span>
+                        <span className="font-medium">{t('common', 'installation.windows')}</span>
                         <Button
                           size="sm"
                           variant="ghost"
@@ -702,12 +703,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                           {copiedIndex === 15 ? (
                             <>
                               <Check className="h-4 w-4" />
-                              Copied!
+                              {t('common', 'installation.copied')}
                             </>
                           ) : (
                             <>
                               <Copy className="h-4 w-4" />
-                              Copy
+                              {t('common', 'installation.copy')}
                             </>
                           )}
                         </Button>
@@ -721,7 +722,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                   <TabsContent value="project" className="space-y-4 mt-6">
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <span className="font-medium">macOS/Linux</span>
+                        <span className="font-medium">{t('common', 'installation.macLinux')}</span>
                         <Button
                           size="sm"
                           variant="ghost"
@@ -731,12 +732,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                           {copiedIndex === 16 ? (
                             <>
                               <Check className="h-4 w-4" />
-                              Copied!
+                              {t('common', 'installation.copied')}
                             </>
                           ) : (
                             <>
                               <Copy className="h-4 w-4" />
-                              Copy
+                              {t('common', 'installation.copy')}
                             </>
                           )}
                         </Button>
@@ -748,7 +749,7 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                     
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <span className="font-medium">Windows</span>
+                        <span className="font-medium">{t('common', 'installation.windows')}</span>
                         <Button
                           size="sm"
                           variant="ghost"
@@ -758,12 +759,12 @@ for %f in (\\path\\to\\claude-code-subagents-collection\\commands\\*.md) do copy
                           {copiedIndex === 17 ? (
                             <>
                               <Check className="h-4 w-4" />
-                              Copied!
+                              {t('common', 'installation.copied')}
                             </>
                           ) : (
                             <>
                               <Copy className="h-4 w-4" />
-                              Copy
+                              {t('common', 'installation.copy')}
                             </>
                           )}
                         </Button>

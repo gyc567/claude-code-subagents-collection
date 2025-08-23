@@ -16,6 +16,7 @@ import { generateCategoryDisplayName, getCategoryIcon } from '@/lib/subagents-ty
 import { generateSubagentMarkdown } from '@/lib/utils'
 import type { Subagent } from '@/lib/subagents-types'
 import { InstallationModalEnhanced } from './installation-modal-enhanced'
+import { useLanguage } from '@/contexts/language-context'
 
 interface SubagentCardProps {
   subagent: Subagent
@@ -34,6 +35,7 @@ const categoryColors: Record<string, string> = {
 const defaultColorClass = 'border-gray-500/50 text-gray-400'
 
 export function SubagentCard({ subagent }: SubagentCardProps) {
+  const { t } = useLanguage()
   const [copied, setCopied] = useState(false)
   const [showInstallModal, setShowInstallModal] = useState(false)
   const categoryName = generateCategoryDisplayName(subagent.category)
@@ -92,7 +94,7 @@ export function SubagentCard({ subagent }: SubagentCardProps) {
             <CardContent>
               {subagent.tools && (
                 <div className="text-sm text-muted-foreground/60 font-mono">
-                  <span className="font-sans font-medium text-muted-foreground/80">Tools:</span> {subagent.tools}
+                  <span className="font-sans font-medium text-muted-foreground/80">{t('common', 'tooltips.tools')}:</span> {subagent.tools}
                 </div>
               )}
             </CardContent>
@@ -117,7 +119,7 @@ export function SubagentCard({ subagent }: SubagentCardProps) {
               </Button>
             </TooltipTrigger>
             <TooltipContent>
-              <p>{copied ? 'Copied!' : 'Copy markdown'}</p>
+              <p>{copied ? t('common', 'tooltips.copied') : t('common', 'tooltips.copyMarkdown')}</p>
             </TooltipContent>
           </Tooltip>
           
@@ -133,7 +135,7 @@ export function SubagentCard({ subagent }: SubagentCardProps) {
               </Button>
             </TooltipTrigger>
             <TooltipContent>
-              <p>Download markdown file</p>
+              <p>{t('common', 'tooltips.downloadFile')}</p>
             </TooltipContent>
           </Tooltip>
           
@@ -153,7 +155,7 @@ export function SubagentCard({ subagent }: SubagentCardProps) {
               </Button>
             </TooltipTrigger>
             <TooltipContent>
-              <p>Install with BWC CLI</p>
+              <p>{t('common', 'tooltips.installCLI')}</p>
             </TooltipContent>
           </Tooltip>
         </div>

@@ -6,17 +6,20 @@ import { GitHubLogoIcon, HamburgerMenuIcon, Cross2Icon } from "@radix-ui/react-i
 import { useState } from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/language-context";
+import { LanguageSwitcher } from "./language-switcher";
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navigationLinks = [
-    { href: "/browse", label: "Subagents" },
-    { href: "/commands", label: "Commands" },
-    { href: "/mcp-servers", label: "MCP Servers" },
-    { href: "/docs", label: "Documentation" },
-    { href: "/docs/cli", label: "CLI Tool" },
-    { href: "/contribute", label: "Contribute" },
+    { href: "/browse", label: t('common', 'navigation.subagents') },
+    { href: "/commands", label: t('common', 'navigation.commands') },
+    { href: "/mcp-servers", label: t('common', 'navigation.mcpServers') },
+    { href: "/docs", label: t('common', 'navigation.documentation') },
+    { href: "/docs/cli", label: t('common', 'navigation.cliTool') },
+    { href: "/contribute", label: t('common', 'navigation.contribute') },
   ];
 
   return (
@@ -26,7 +29,7 @@ export function Navigation() {
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-8">
               <Link href="/" className="text-md font-bold text-gradient">
-                Build with Claude Code
+                {t('common', 'navigation.title')}
               </Link>
               <div className="hidden md:flex items-center gap-6">
                 {navigationLinks.map((link) => (
@@ -41,6 +44,7 @@ export function Navigation() {
               </div>
             </div>
             <div className="flex items-center gap-3">
+              <LanguageSwitcher />
               {/* Mobile menu button */}
               <Button
                 variant="ghost"
@@ -103,7 +107,7 @@ export function Navigation() {
                 className="text-md font-bold text-gradient"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Build with Claude Code
+                {t('common', 'navigation.title')}
               </Link>
               <DialogPrimitive.Close className="rounded-sm opacity-70 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
                 <Cross2Icon className="h-5 w-5" />
@@ -137,7 +141,7 @@ export function Navigation() {
               >
                 <Button variant="default" className="w-full justify-center gap-2 btn-gradient">
                   <GitHubLogoIcon className="h-4 w-4" />
-                  View on GitHub
+                  {t('common', 'buttons.viewOnGithub')}
                 </Button>
               </a>
               <div className="flex justify-center">

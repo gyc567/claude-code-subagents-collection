@@ -1,0 +1,25 @@
+{
+  "hero": {
+    "title": "Claude Code 子代理与命令",
+    "subtitle": "通过 {{subagentCount}}+ 个专业专家和 {{commandCount}}+ 个生产力命令增强您的 AI 开发。获得领域特定的帮助并即时自动化工作流程。",
+    "buttons": {
+      "browseSubagents": "浏览所有子代理",
+      "installationGuide": "安装指南", 
+      "viewGithub": "在 GitHub 上查看"
+    }
+  },
+  "cta": {
+    "title": "准备好加速您的开发了吗？",
+    "subtitle": "加入成千上万的开发者，使用 Claude Code 子代理和命令更快地构建更好的软件。",
+    "buttons": {
+      "getStarted": "开始使用",
+      "learnMore": "了解更多"
+    }
+  },
+  "sections": {
+    "featuredSubagents": "精选子代理",
+    "featuredCommands": "精选命令",
+    "howItWorks": "工作原理",
+    "whyChoose": "为什么选择我们的集合"
+  }
+}

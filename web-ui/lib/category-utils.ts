@@ -2,6 +2,8 @@
  * Utility functions for dynamic category management
  */
 
+import { useLanguage } from '@/contexts/language-context';
+
 // Special case mappings for better display names
 const SPECIAL_CASES: Record<string, string> = {
   'ai': 'AI',
@@ -58,9 +60,32 @@ export const CATEGORY_ICONS: Record<string, string> = {
 /**
  * Generate a user-friendly display name from a category ID
  * @param categoryId - The category ID from frontmatter (e.g., 'development-architecture')
+ * @param language - The current language ('en' or 'zh')
+ * @param t - Translation function
  * @returns User-friendly display name (e.g., 'Development & Architecture')
  */
-export function generateCategoryDisplayName(categoryId: string): string {
+export function generateCategoryDisplayName(
+  categoryId: string, 
+  language: string = 'en',
+  t?: (namespace: string, key: string) => string
+): string {
+  if (t && language === 'zh') {
+    // Try to get translated category name
+    try {
+      const translatedName = t('categories', `subagentCategories.${categoryId}`);
+      if (translatedName && !translatedName.includes('.')) {
+        return translatedName;
+      }
+      const commandTranslation = t('categories', `commandCategories.${categoryId}`);
+      if (commandTranslation && !commandTranslation.includes('.')) {
+        return commandTranslation;
+      }
+    } catch (error) {
+      // Fall back to English generation
+    }
+  }
+  
+  // Default English generation
   return categoryId
     .split('-')
     .map(word => {
@@ -99,12 +124,14 @@ export interface CategoryMetadata {
  * Generate category metadata from a list of categories with counts
  */
 export function generateCategoryMetadata(
-  categoryCounts: Record<string, number>
+  categoryCounts: Record<string, number>,
+  language: string = 'en',
+  t?: (namespace: string, key: string) => string
 ): CategoryMetadata[] {
   return Object.entries(categoryCounts)
     .map(([id, count]) => ({
       id,
-      displayName: generateCategoryDisplayName(id),
+      displayName: generateCategoryDisplayName(id, language, t),
       icon: getCategoryIcon(id),
       count
     }))

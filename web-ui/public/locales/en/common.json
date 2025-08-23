@@ -1,0 +1,44 @@
+{
+  "navigation": {
+    "title": "Build with Claude Code",
+    "subagents": "Subagents",
+    "commands": "Commands", 
+    "mcpServers": "MCP Servers",
+    "documentation": "Documentation",
+    "cliTool": "CLI Tool",
+    "contribute": "Contribute"
+  },
+  "buttons": {
+    "copyMarkdown": "Copy markdown",
+    "downloadFile": "Download markdown file", 
+    "installWithCli": "Install with BWC CLI",
+    "browseAll": "Browse All",
+    "installationGuide": "Installation Guide",
+    "viewOnGithub": "View on GitHub"
+  },
+  "search": {
+    "placeholder": "Search subagents and commands...",
+    "noResults": "No results found",
+    "categories": "Categories",
+    "allCategories": "All Categories"
+  },
+  "features": {
+    "easyInstallation": {
+      "title": "Easy Installation",
+      "description": "One-click copy or download any subagent or command from the browser"
+    },
+    "automaticInvocation": {
+      "title": "Automatic Invocation", 
+      "description": "Claude Code automatically delegates to the right specialist based on your task"
+    },
+    "qualityAssured": {
+      "title": "Quality Assured",
+      "description": "Each subagent follows best practices with comprehensive validation"
+    }
+  },
+  "stats": {
+    "subagents": "{{count}}+ Expert Subagents", 
+    "commands": "{{count}}+ Productivity Commands",
+    "mcpServers": "{{count}}+ MCP Servers"
+  }
+}

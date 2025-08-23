@@ -1,0 +1,20 @@
+{
+  "subagentCategories": {
+    "development-architecture": "🏗️ Development & Architecture",
+    "language-specialists": "💻 Language Specialists", 
+    "infrastructure-operations": "🚀 Infrastructure & Operations",
+    "quality-security": "🛡️ Quality & Security",
+    "data-ai": "📊 Data & AI",
+    "specialized-domains": "🎯 Specialized Domains",
+    "crypto-trading": "💰 Crypto Trading"
+  },
+  "commandCategories": {
+    "version-control-git": "🔧 Version Control & Git",
+    "code-analysis-testing": "🧪 Code Analysis & Testing", 
+    "context-loading-priming": "📥 Context Loading & Priming",
+    "documentation-changelogs": "📝 Documentation & Changelogs",
+    "project-task-management": "📋 Project & Task Management",
+    "ci-deployment": "🚀 CI/CD & Deployment",
+    "miscellaneous": "🔗 Miscellaneous"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "hero": {
+    "title": "Claude Code Subagents & Commands",
+    "subtitle": "Enhance your AI development with {{subagentCount}}+ specialist experts and {{commandCount}}+ productivity commands. Get domain-specific help and automate workflows instantly.",
+    "buttons": {
+      "browseSubagents": "Browse All Subagents",
+      "installationGuide": "Installation Guide", 
+      "viewGithub": "View on GitHub"
+    }
+  },
+  "cta": {
+    "title": "Ready to Supercharge Your Development?",
+    "subtitle": "Join thousands of developers using Claude Code subagents and commands to build better software faster.",
+    "buttons": {
+      "getStarted": "Get Started",
+      "learnMore": "Learn More"
+    }
+  },
+  "sections": {
+    "featuredSubagents": "Featured Subagents",
+    "featuredCommands": "Featured Commands",
+    "howItWorks": "How It Works",
+    "whyChoose": "Why Choose Our Collection"
+  }
+}

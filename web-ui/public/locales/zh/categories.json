@@ -1,0 +1,20 @@
+{
+  "subagentCategories": {
+    "development-architecture": "🏗️ 开发与架构",
+    "language-specialists": "💻 编程语言专家", 
+    "infrastructure-operations": "🚀 基础设施与运维",
+    "quality-security": "🛡️ 质量与安全",
+    "data-ai": "📊 数据与人工智能",
+    "specialized-domains": "🎯 专业领域",
+    "crypto-trading": "💰 加密货币交易"
+  },
+  "commandCategories": {
+    "version-control-git": "🔧 版本控制与 Git",
+    "code-analysis-testing": "🧪 代码分析与测试", 
+    "context-loading-priming": "📥 上下文加载与准备",
+    "documentation-changelogs": "📝 文档与变更日志",
+    "project-task-management": "📋 项目与任务管理",
+    "ci-deployment": "🚀 持续集成与部署",
+    "miscellaneous": "🔗 其他"
+  }
+}

@@ -7,6 +7,7 @@ import { CommandCard } from '@/components/command-card'
 import { Terminal, Zap, Shield, Database, Brain, Code2, Download, ArrowRight } from 'lucide-react'
 import type { Subagent, CategoryMetadata } from '@/lib/subagents-types'
 import type { Command } from '@/lib/commands-types'
+import { useLanguage } from '@/contexts/language-context'
 
 interface HomePageClientProps {
   allSubagents: Subagent[]
@@ -25,26 +26,27 @@ export default function HomePageClient({
   featuredCommands,
   commandCategories 
 }: HomePageClientProps) {
+  const { t } = useLanguage()
 
   const features = [
     {
       icon: Terminal,
-      title: 'Easy Installation',
-      description: 'One-click copy or download any subagent directly from the browser'
+      title: t('common', 'features.easyInstallation.title'),
+      description: t('common', 'features.easyInstallation.description')
     },
     {
       icon: Zap,
-      title: 'Automatic Invocation',
-      description: 'Claude Code automatically delegates to the right specialist'
+      title: t('common', 'features.automaticInvocation.title'),
+      description: t('common', 'features.automaticInvocation.description')
     },
     {
       icon: Shield,
-      title: 'Quality Assured',
-      description: 'Each subagent follows best practices and security standards'
+      title: t('common', 'features.qualityAssured.title'),
+      description: t('common', 'features.qualityAssured.description')
     },
     {
       icon: Database,
-      title: `${allSubagents.length}+ Subagents & ${allCommands.length}+ Commands`,
+      title: `${allSubagents.length}+ ${t('common', 'navigation.subagents')} & ${allCommands.length}+ ${t('common', 'navigation.commands')}`,
       description: 'Comprehensive collection of AI specialists and productivity commands'
     },
     {
@@ -81,13 +83,15 @@ export default function HomePageClient({
               <span className="text-foreground">Subagents & Commands</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              Enhance your AI development with {allSubagents.length}+ specialized experts and {allCommands.length}+ productivity commands. 
-              Get domain-specific assistance and automate workflows instantly.
+              {t('homepage', 'hero.subtitle', {
+                subagentCount: allSubagents.length,
+                commandCount: allCommands.length
+              })}
             </p>
             <div className="flex gap-4 justify-center flex-wrap animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <Link href="/browse">
                 <Button size="lg" className="btn-gradient gap-2 px-8">
-                  Browse All Subagents <ArrowRight className="h-4 w-4" />
+                  {t('homepage', 'hero.buttons.browseSubagents')} <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
               <Link href="/docs/installation">
@@ -97,7 +101,7 @@ export default function HomePageClient({
                   className="gap-2 border border-border/50 hover:bg-primary/10 hover:text-primary px-8"
                 >
                   <Download className="h-4 w-4" />
-                  Installation Guide
+                  {t('homepage', 'hero.buttons.installationGuide')}
                 </Button>
               </Link>
               <a 
@@ -106,7 +110,7 @@ export default function HomePageClient({
                 rel="noopener noreferrer"
               >
                 <Button size="lg" variant="ghost" className="border border-border/50 hover:bg-primary/10 hover:text-primary">
-                  View on GitHub
+                  {t('homepage', 'hero.buttons.viewGithub')}
                 </Button>
               </a>
             </div>
@@ -120,19 +124,19 @@ export default function HomePageClient({
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             <div className="text-center p-8 bg-background rounded-xl border border-border/50 hover:border-primary/20 transition-colors">
               <div className="text-4xl font-bold text-primary mb-2">{allSubagents.length}+</div>
-              <div className="text-sm text-muted-foreground">Subagents</div>
+              <div className="text-sm text-muted-foreground">{t('common', 'navigation.subagents')}</div>
             </div>
             <div className="text-center p-8 bg-background rounded-xl border border-border/50 hover:border-primary/20 transition-colors">
               <div className="text-4xl font-bold text-primary mb-2">{allCommands.length}+</div>
-              <div className="text-sm text-muted-foreground">Commands</div>
+              <div className="text-sm text-muted-foreground">{t('common', 'navigation.commands')}</div>
             </div>
             <div className="text-center p-8 bg-background rounded-xl border border-border/50 hover:border-primary/20 transition-colors">
               <div className="text-4xl font-bold text-primary mb-2">{categories.length + commandCategories.length}</div>
-              <div className="text-sm text-muted-foreground">Categories</div>
+              <div className="text-sm text-muted-foreground">{t('common', 'cards.categories')}</div>
             </div>
             <div className="text-center p-8 bg-background rounded-xl border border-border/50 hover:border-primary/20 transition-colors">
               <div className="text-4xl font-bold text-primary mb-2">MIT</div>
-              <div className="text-sm text-muted-foreground">License</div>
+              <div className="text-sm text-muted-foreground">{t('common', 'cards.license')}</div>
             </div>
           </div>
         </div>
@@ -142,8 +146,8 @@ export default function HomePageClient({
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-display-3 font-bold mb-4">Why Choose Subagents?</h2>
-            <p className="text-xl text-muted-foreground">Powerful features to enhance your development workflow</p>
+            <h2 className="text-display-3 font-bold mb-4">{t('common', 'sections.whyChoose')}</h2>
+            <p className="text-xl text-muted-foreground">{t('common', 'descriptions.featuresDesc')}</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {features.map((feature, i) => (
@@ -160,10 +164,9 @@ export default function HomePageClient({
       {/* Featured Subagents */}
       <section className="container mx-auto px-4 py-16">
         <div className="mb-8">
-          <h2 className="text-3xl font-bold mb-4">Featured Subagents</h2>
+          <h2 className="text-3xl font-bold mb-4">{t('common', 'sections.featuredSubagents')}</h2>
           <p className="text-muted-foreground">
-            Popular specialists to enhance your development workflow. 
-            Hover over any card to copy or download instantly!
+            {t('common', 'descriptions.featuredSubagentsDesc')}
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
@@ -174,7 +177,7 @@ export default function HomePageClient({
         <div className="text-center">
           <Link href="/browse">
             <Button variant="outline" size="lg">
-              View All Subagents
+              {t('common', 'links.viewAllSubagents')}
             </Button>
           </Link>
         </div>
@@ -183,10 +186,9 @@ export default function HomePageClient({
       {/* Featured Commands */}
       <section className="container mx-auto px-4 py-16 bg-card/50">
         <div className="mb-8">
-          <h2 className="text-3xl font-bold mb-4">Featured Commands</h2>
+          <h2 className="text-3xl font-bold mb-4">{t('common', 'sections.featuredCommands')}</h2>
           <p className="text-muted-foreground">
-            Powerful slash commands to automate your workflow. 
-            Hover over any card to copy or download instantly!
+            {t('common', 'descriptions.featuredCommandsDesc')}
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
@@ -197,7 +199,7 @@ export default function HomePageClient({
         <div className="text-center">
           <Link href="/commands">
             <Button variant="outline" size="lg">
-              View All Commands
+              {t('common', 'links.viewAllCommands')}
             </Button>
           </Link>
         </div>
@@ -206,8 +208,8 @@ export default function HomePageClient({
       {/* Categories Overview */}
       <section className="container mx-auto px-4 py-16">
         <div className="mb-8">
-          <h2 className="text-3xl font-bold mb-4">Browse Subagents by Category</h2>
-          <p className="text-muted-foreground">Find the perfect specialist for your needs</p>
+          <h2 className="text-3xl font-bold mb-4">{t('common', 'sections.categoriesOverview')}</h2>
+          <p className="text-muted-foreground">{t('common', 'descriptions.categoriesDesc')}</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {categories.map((category) => (
@@ -215,7 +217,7 @@ export default function HomePageClient({
               <div className="p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow cursor-pointer">
                 <div className="text-3xl mb-2">{category.icon}</div>
                 <h3 className="font-semibold mb-1">{category.displayName}</h3>
-                <p className="text-sm text-muted-foreground">{category.count} subagents</p>
+                <p className="text-sm text-muted-foreground">{t('common', 'cards.subagentsCount', { count: category.count })}</p>
               </div>
             </Link>
           ))}
@@ -228,12 +230,12 @@ export default function HomePageClient({
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 p-12 md:p-16 text-center">
             <div className="absolute inset-0 gradient-radial opacity-30" />
             <div className="relative z-10">
-              <h2 className="text-display-3 font-bold mb-6">Ready to Supercharge Your Development?</h2>
+              <h2 className="text-display-3 font-bold mb-6">{t('homepage', 'cta.title')}</h2>
               <p className="text-xl mb-10 text-muted-foreground max-w-2xl mx-auto">
-                Install the complete collection of subagents and commands to enhance Claude Code with domain experts and productivity tools
+                {t('homepage', 'cta.subtitle')}
               </p>
               <div className="bg-background/80 backdrop-blur rounded-xl p-6 max-w-3xl mx-auto mb-10 border border-border/50">
-                <p className="text-sm text-muted-foreground mb-2">Quick install everything:</p>
+                <p className="text-sm text-muted-foreground mb-2">{t('common', 'descriptions.quickInstallDesc')}</p>
                 <code className="text-sm font-mono text-foreground/90 block overflow-x-auto">
                   git clone https://github.com/davepoon/claude-code-subagents-collection.git && cd claude-code-subagents-collection && {'find subagents -name "*.md" -exec cp {} ~/.claude/agents/ \\;'} && {'find commands -name "*.md" -exec cp {} ~/.claude/commands/ \\;'}
                 </code>
@@ -243,7 +245,7 @@ export default function HomePageClient({
                   size="lg" 
                   className="btn-gradient px-10"
                 >
-                  View Installation Guide
+                  {t('homepage', 'cta.buttons.learnMore')}
                 </Button>
               </Link>
             </div>

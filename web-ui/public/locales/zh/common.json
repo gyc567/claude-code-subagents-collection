@@ -1,0 +1,125 @@
+{
+  "navigation": {
+    "title": "Claude Code 构建工具",
+    "subagents": "子代理",
+    "commands": "命令", 
+    "mcpServers": "MCP 服务器",
+    "documentation": "文档",
+    "cliTool": "CLI 工具",
+    "contribute": "贡献"
+  },
+  "buttons": {
+    "copyMarkdown": "复制 Markdown",
+    "downloadFile": "下载 Markdown 文件", 
+    "installWithCli": "使用 BWC CLI 安装",
+    "browseAll": "浏览全部",
+    "installationGuide": "安装指南",
+    "viewOnGithub": "在 GitHub 上查看",
+    "recommended": "推荐"
+  },
+  "search": {
+    "placeholder": "搜索子代理和命令...",
+    "noResults": "未找到结果",
+    "categories": "分类",
+    "allCategories": "所有分类"
+  },
+  "features": {
+    "easyInstallation": {
+      "title": "轻松安装",
+      "description": "从浏览器中一键复制或下载任何子代理或命令"
+    },
+    "automaticInvocation": {
+      "title": "自动调用", 
+      "description": "Claude Code 会根据您的任务自动委托给合适的专家"
+    },
+    "qualityAssured": {
+      "title": "质量保证",
+      "description": "每个子代理都遵循最佳实践，经过全面验证"
+    }
+  },
+  "stats": {
+    "subagents": "{{count}}+ 个专家子代理", 
+    "commands": "{{count}}+ 个生产力命令",
+    "mcpServers": "{{count}}+ 个 MCP 服务器"
+  },
+  "tooltips": {
+    "copyMarkdown": "复制 Markdown",
+    "downloadFile": "下载 Markdown 文件",
+    "installCLI": "使用 BWC CLI 安装",
+    "copied": "已复制！",
+    "tools": "工具"
+  },
+  "sections": {
+    "featuredSubagents": "精选子代理",
+    "featuredCommands": "精选命令",
+    "categoriesOverview": "按分类浏览子代理",
+    "whyChoose": "为什么选择子代理？",
+    "afterInstallation": "安装完成后"
+  },
+  "descriptions": {
+    "featuredSubagentsDesc": "热门专家助您提升开发工作流程。将鼠标悬停在任意卡片上即可一键复制或下载！",
+    "featuredCommandsDesc": "强大的斜杠命令助您自动化工作流程。将鼠标悬停在任意卡片上即可一键复制或下载！",
+    "categoriesDesc": "找到最适合您需求的专家",
+    "featuresDesc": "助您提升开发工作流程的强大功能",
+    "quickInstallDesc": "一键安装所有内容：",
+    "enhanceDevelopment": "通过领域专家和生产力工具来增强 Claude Code"
+  },
+  "cards": {
+    "license": "许可证",
+    "categories": "分类",
+    "subagentsCount": "{{count}} 个子代理"
+  },
+  "links": {
+    "viewAll": "查看全部",
+    "viewAllSubagents": "查看所有子代理",
+    "viewAllCommands": "查看所有命令",
+    "viewOnGithub": "在 GitHub 上查看",
+    "back": "返回"
+  },
+  "installation": {
+    "title": "安装指南",
+    "description": "了解如何安装 Claude Code 子代理和命令",
+    "quickTip": "快速安装提示",
+    "quickTipDesc": "安装单个子代理或命令的最简单方法是直接从其页面进行！每个页面都提供特定平台的安装说明和复制按钮，便于快速设置。",
+    "installEverything": "安装所有内容",
+    "installEverythingDesc": "获得完整的43+个专业化子代理和39+个命令集合，提供全面的AI辅助和自动化。",
+    "subagentsOnly": "仅安装子代理",
+    "subagentsOnlyDesc": "安装完整的43+个专业化AI子代理集合，在所有领域提供全面协助。",
+    "commandsOnly": "仅安装命令",
+    "commandsOnlyDesc": "安装39+个斜杠命令集合，用于自动化和生产力提升。",
+    "allSubagents": "所有子代理",
+    "allCommands": "所有命令",
+    "singleSubagent": "单个子代理",
+    "singleCommand": "单个命令",
+    "userLevel": "用户级",
+    "projectLevel": "项目级",
+    "userInstallation": "用户安装",
+    "userInstallationDesc": "全局安装子代理，使其在所有项目中可用",
+    "projectInstallation": "项目安装",
+    "projectInstallationDesc": "仅为当前项目安装子代理",
+    "manualInstallation": "手动安装",
+    "manualInstallationDesc": "将 {{placeholder}} 替换为实际的文件名",
+    "proTip": "💡 专业提示：访问任何子代理页面，获取具体的安装命令和实际文件名！",
+    "proTipCommands": "💡 专业提示：访问任何命令页面，获取具体的安装命令和实际文件名！",
+    "macLinux": "macOS/Linux",
+    "windows": "Windows",
+    "copy": "复制",
+    "copied": "已复制！",
+    "whatsIncluded": "包含内容",
+    "includedSubagents": "✓ 43+ 个专业任务AI子代理",
+    "includedCommands": "✓ 39+ 个自动化斜杠命令",
+    "includedAutoInvocation": "✓ 基于上下文的自动调用",
+    "includedAllProjects": "✓ 适用于所有项目",
+    "afterInstallationTitle": "安装完成后",
+    "step1Title": "重启 Claude Code",
+    "step1Desc": "重启 Claude Code 以加载新安装的子代理和命令",
+    "step2Title": "使用子代理",
+    "step2Desc": "子代理将根据上下文自动调用，或您可以使用 @ 提及显式调用它们",
+    "step3Title": "使用命令",
+    "step3Desc": "使用 / 前缀调用命令，例如：{{example1}} 或 {{example2}}",
+    "step4Title": "验证安装",
+    "step4Desc": "检查已安装的文件：{{agentsCmd}} 和 {{commandsCmd}}",
+    "browseSubagents": "浏览子代理",
+    "browseCommands": "浏览命令"
+  }
+}

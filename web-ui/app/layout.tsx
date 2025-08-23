@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { Navigation } from "@/components/navigation";
+import { LanguageProvider } from "@/contexts/language-context";
 import "./globals.css";
 
 const inter = Inter({
@@ -31,7 +32,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
-        <Navigation />
+        <LanguageProvider>
+          <Navigation />
         <div className="h-16" /> {/* Spacer for fixed nav */}
         {children}
         <footer className="border-t border-border/40 bg-card/50">
@@ -72,6 +74,7 @@ export default function RootLayout({
           </div>
         </footer>
         <Analytics />
+        </LanguageProvider>
       </body>
     </html>
   );
