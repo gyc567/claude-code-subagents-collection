@@ -15,7 +15,7 @@ function getRegistry() {
 
 export function getAllMCPServers(): MCPServer[] {
   const registry = getRegistry()
-  return registry.mcpServers || []
+  return registry?.mcpServers || []
 }
 
 export function getMCPServerBySlug(slug: string): MCPServer | null {
