@@ -244,7 +244,7 @@ export interface UserInput {
   description: string
   required: boolean
   placeholder?: string
-  default?: any
+  default?: string | number | boolean
   validation?: {
     pattern?: string
     min?: number

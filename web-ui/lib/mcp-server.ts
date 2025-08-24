@@ -1,8 +1,8 @@
 import fs from 'fs'
 import path from 'path'
-import { MCPServer } from './mcp-types'
+import { MCPServer, MCP_CATEGORIES } from './mcp-types'
 
-let registryCache: any = null
+let registryCache: { mcpServers: MCPServer[] } | null = null
 
 function getRegistry() {
   if (!registryCache) {
@@ -59,8 +59,7 @@ export function getAllMCPCategories(): MCPCategoryMetadata[] {
     categoryCounts[category] = (categoryCounts[category] || 0) + 1
   })
   
-  // Import category definitions
-  const { MCP_CATEGORIES } = require('./mcp-types')
+  // Use imported category definitions
   
   // Generate metadata
   const categories: MCPCategoryMetadata[] = []
