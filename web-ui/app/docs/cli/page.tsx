@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Button } from '@/components/ui/button'
-import { Copy, Check, Terminal, Package, Zap, Settings, ArrowLeft, ChevronRight, Shield } from 'lucide-react'
+import { Copy, Check, Terminal, Package, Zap, Settings, ArrowLeft, Shield } from 'lucide-react'
 import Link from 'next/link'
 
 interface PackageManagerSwitcherProps {
@@ -973,7 +973,7 @@ bwc add
                 </pre>
               </div>
               <p className="text-sm text-muted-foreground mt-3">
-                💡 <strong>Tip:</strong> If Docker isn't available, BWC automatically uses the registry.
+                💡 <strong>Tip:</strong> If Docker isn&apos;t available, BWC automatically uses the registry.
               </p>
             </div>
 
@@ -1646,9 +1646,9 @@ claude mcp add <name> --transport http --url <url>`}</code>
             <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-primary/20 rounded-lg p-6">
               <h3 className="font-semibold mb-3">When to Use MCP Verification</h3>
               <ul className="space-y-2 text-sm">
-                <li>✓ MCP servers appear configured but don't work in Claude Code</li>
+                <li>✓ MCP servers appear configured but don&apos;t work in Claude Code</li>
                 <li>✓ After team member clones project with <code className="bg-muted px-1 rounded">bwc.config.json</code></li>
-                <li>✓ Debugging "server not found" errors</li>
+                <li>✓ Debugging &quot;server not found&quot; errors</li>
                 <li>✓ Verifying Docker gateway setup</li>
                 <li>✓ Checking remote server connectivity</li>
               </ul>
@@ -2075,7 +2075,7 @@ NO_PROXY=localhost,127.0.0.1,*.company.com,*.internal.net,github.com,docker.com`
             
             {/* Provider-specific issues */}
             <div className="border border-amber-500/50 rounded-lg p-4 bg-amber-500/5">
-              <h3 className="font-semibold mb-2 text-amber-600">Can't add remote server when Docker is available</h3>
+              <h3 className="font-semibold mb-2 text-amber-600">Can&apos;t add remote server when Docker is available</h3>
               <p className="text-muted-foreground mb-2">This issue has been fixed! BWC no longer automatically selects Docker MCP.</p>
               <p className="text-sm text-muted-foreground">
                 <strong>Solution:</strong> Use explicit flags to select your provider:
@@ -2092,7 +2092,7 @@ NO_PROXY=localhost,127.0.0.1,*.company.com,*.internal.net,github.com,docker.com`
               <ul className="text-sm space-y-1">
                 <li>• Run <code className="bg-muted px-1 rounded">bwc status --verbose</code> to see provider for each server</li>
                 <li>• Look for <code className="bg-muted px-1 rounded">docker/stdio</code> or <code className="bg-muted px-1 rounded">claude/sse</code> in the output</li>
-                <li>• Check your <code className="bg-muted px-1 rounded">bwc.config.json</code> for the "provider" field</li>
+                <li>• Check your <code className="bg-muted px-1 rounded">bwc.config.json</code> for the &quot;provider&quot; field</li>
               </ul>
             </div>
             
@@ -2117,7 +2117,7 @@ NO_PROXY=localhost,127.0.0.1,*.company.com,*.internal.net,github.com,docker.com`
             
             <div className="border border-border/50 rounded-lg p-4">
               <h3 className="font-semibold mb-2">MCP servers from old version</h3>
-              <p className="text-muted-foreground">BWC automatically migrates legacy MCP server configurations. Old string arrays are converted to the new format with 'docker' as the default provider</p>
+              <p className="text-muted-foreground">BWC automatically migrates legacy MCP server configurations. Old string arrays are converted to the new format with &apos;docker&apos; as the default provider</p>
             </div>
             <div className="border border-border/50 rounded-lg p-4">
               <h3 className="font-semibold mb-2">Failed to fetch registry</h3>

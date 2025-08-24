@@ -28,13 +28,13 @@ const initI18next = async (lng: string, ns: string) => {
 export function useTranslationWithFallback() {
   // This will be used for client-side translations
   return {
-    t: (key: string, options?: any) => {
+    t: (key: string, options?: Record<string, string | number | boolean>) => {
       // Simple fallback implementation for server-side rendering
       return key;
     },
     i18n: {
       language: 'en',
-      changeLanguage: (lng: string) => {
+      changeLanguage: () => {
         // Client-side language change logic
       },
     },

@@ -2,7 +2,6 @@
  * Utility functions for dynamic category management
  */
 
-import { useLanguage } from '@/contexts/language-context';
 
 // Special case mappings for better display names
 const SPECIAL_CASES: Record<string, string> = {
@@ -67,7 +66,7 @@ export const CATEGORY_ICONS: Record<string, string> = {
 export function generateCategoryDisplayName(
   categoryId: string, 
   language: string = 'en',
-  t?: (namespace: "common" | "homepage" | "categories", key: string, params?: Record<string, any>) => string
+  t?: (namespace: "common" | "homepage" | "categories", key: string, params?: Record<string, string | number | boolean>) => string
 ): string {
   if (t && language === 'zh') {
     // Try to get translated category name
@@ -80,7 +79,7 @@ export function generateCategoryDisplayName(
       if (commandTranslation && !commandTranslation.includes('.')) {
         return commandTranslation;
       }
-    } catch (error) {
+    } catch {
       // Fall back to English generation
     }
   }
