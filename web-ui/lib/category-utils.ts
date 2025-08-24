@@ -67,7 +67,7 @@ export const CATEGORY_ICONS: Record<string, string> = {
 export function generateCategoryDisplayName(
   categoryId: string, 
   language: string = 'en',
-  t?: (namespace: string, key: string) => string
+  t?: (namespace: "common" | "homepage" | "categories", key: string, params?: Record<string, any>) => string
 ): string {
   if (t && language === 'zh') {
     // Try to get translated category name

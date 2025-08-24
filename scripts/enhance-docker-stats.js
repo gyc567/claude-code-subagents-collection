@@ -14,7 +14,7 @@ const { DockerHubAPI, extractDockerImageName, enhanceServerWithDockerStats } = r
  */
 async function enhanceMCPServersWithDockerStats(mcpServers) {
   // Skip stats fetching in CI to speed up the process
-  const isCI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true';
+  const isCI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true' || process.env.VERCEL === '1';
   
   if (isCI) {
     console.log('\n📊 Skipping Docker Hub statistics in CI environment...');
