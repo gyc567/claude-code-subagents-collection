@@ -15,6 +15,7 @@ export function Navigation() {
 
   const navigationLinks = [
     { href: "/browse", label: t('common', 'navigation.subagents') },
+    { href: "https://www.supercopycoder.xyz/", label: "主站", external: true },
     { href: "/commands", label: t('common', 'navigation.commands') },
     { href: "/mcp-servers", label: t('common', 'navigation.mcpServers') },
     { href: "/docs", label: t('common', 'navigation.documentation') },
@@ -33,13 +34,25 @@ export function Navigation() {
               </Link>
               <div className="hidden md:flex items-center gap-6">
                 {navigationLinks.map((link) => (
-                  <Link 
-                    key={link.href}
-                    href={link.href} 
-                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  link.external ? (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link 
+                      key={link.href}
+                      href={link.href} 
+                      className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  )
                 ))}
               </div>
             </div>
@@ -119,14 +132,27 @@ export function Navigation() {
             <nav className="flex-1 px-4 py-6">
               <div className="space-y-1">
                 {navigationLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="block rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
+                  link.external ? (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="block rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  )
                 ))}
               </div>
             </nav>
